@@ -36,6 +36,28 @@ RSpec.describe "Cats", type: :request do
         cat = Cat.first
         expect(cat.name).to eq('Max')
       end
+
+
+      it "cannot create a cat without a name" do
+        cat_params = {
+          cat: {
+            age: 5,
+            hobbies: 'Barking at cars',
+            image: 'https://unsplash.com/s/photos/jaguar'
+          }
+        }
+  
+        post '/cats', params: cat_params
+        cat = Cat.first
+
+        expect(response).to have_http_status(422)
+        json = JSON.parse(response.body)
+        expect(json['name']).to include "can't be blank"
+      end
+
+
+
+
     end
  
     describe "PATCH /update" do
