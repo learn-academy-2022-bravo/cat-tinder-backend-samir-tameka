@@ -49,7 +49,6 @@ RSpec.describe "Cats", type: :request do
         }
   
         post '/cats', params: cat_params
-        cat = Cat.first
 
         expect(response).to have_http_status(422)
         json = JSON.parse(response.body)
@@ -67,7 +66,6 @@ RSpec.describe "Cats", type: :request do
         }
   
         post '/cats', params: cat_params
-        cat = Cat.first
 
         expect(response).to have_http_status(422)
         json = JSON.parse(response.body)
@@ -85,7 +83,6 @@ RSpec.describe "Cats", type: :request do
         }
   
         post '/cats', params: cat_params
-        cat = Cat.first
 
         expect(response).to have_http_status(422)
         json = JSON.parse(response.body)
@@ -103,7 +100,6 @@ RSpec.describe "Cats", type: :request do
         }
   
         post '/cats', params: cat_params
-        cat = Cat.first
 
         expect(response).to have_http_status(422)
         json = JSON.parse(response.body)
