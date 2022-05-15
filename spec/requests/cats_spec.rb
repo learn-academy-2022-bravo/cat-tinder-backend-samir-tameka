@@ -156,6 +156,7 @@ RSpec.describe "Cats", type: :request do
         delete "/cats/#{cat.id}", params: cat_params
         destroy_cat = Cat.find_by(id: cat.id)
         expect(destroy_cat).to be_nil
+        
       end
     end
 
